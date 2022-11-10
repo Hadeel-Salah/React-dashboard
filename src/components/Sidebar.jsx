@@ -8,9 +8,13 @@ import { itemsToOrder } from '@syncfusion/ej2/treemap';
 import { useStateContext } from '../contexts/contextProvider';
 
 const Sidebar = () => {
-  const {activeMenu,setActiveMenu} = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
 
-  const activeMenue = true;
+  const handleCloseSideBar = () => {
+    if (activeMenu !== undefined && screenSize <= 900) {
+      setActiveMenu(false);
+    }
+  };
   const currentColor = "red"
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-neutral-600 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
@@ -18,7 +22,7 @@ const Sidebar = () => {
     <div className="ml-3 h-screen
      md:overflow-hiddlen overflow-auto
      md:hover:overflow-auto pb-10">
-      {activeMenue &&
+      {activeMenu &&
         (
           <>
             <div className='flex justify-between items-center'>
@@ -36,7 +40,7 @@ const Sidebar = () => {
               >
                 <button
                   type="button"
-                  onClick={()=> setActiveMenu((prevActiveMenu)=>!prevActiveMenu)}
+                  onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
                   className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block "
                 >
                   <MdOutlineCancel />
@@ -53,7 +57,7 @@ const Sidebar = () => {
                     <NavLink
                       to={`/${link.name}`}
                       key={link.name}
-                      onClick={() => { }}
+                      onClick={handleCloseSideBar}
                       style={({ isActive }) => ({
                         backgroundColor: isActive ? currentColor : '',
                       })}
