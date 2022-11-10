@@ -5,8 +5,11 @@ import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { itemsToOrder } from '@syncfusion/ej2/treemap';
+import { useStateContext } from '../contexts/contextProvider';
 
 const Sidebar = () => {
+  const {activeMenu,setActiveMenu} = useStateContext();
+
   const activeMenue = true;
   const currentColor = "red"
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
@@ -23,7 +26,7 @@ const Sidebar = () => {
                gap-3 nl-3 mt-4 flex text-xl 
                font-extrasbolad tracking-tight
                dark:text-white text-s;ate-900"
-                to="/" onClick={() => { }}>
+                to="/" onClick={() => setActiveMenu(false)}>
                 <SiShopware /> Shoppy
               </Link>
 
@@ -33,6 +36,7 @@ const Sidebar = () => {
               >
                 <button
                   type="button"
+                  onClick={()=> setActiveMenu((prevActiveMenu)=>!prevActiveMenu)}
                   className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block "
                 >
                   <MdOutlineCancel />
