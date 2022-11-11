@@ -40,7 +40,7 @@ module.exports = {
             },
             backgroundImage: {
                 'hero-pattern':
-                    "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+                    "url('https://email.uplers.com/blog/wp-content/uploads/2020/07/GIF-blog.gif')",
             },
         },
     },
