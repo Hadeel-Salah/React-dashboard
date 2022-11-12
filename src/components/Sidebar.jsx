@@ -8,14 +8,13 @@ import { itemsToOrder } from '@syncfusion/ej2/treemap';
 import { useStateContext } from '../contexts/contextProvider';
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize,currentColor } = useStateContext();
 
   const handleCloseSideBar = () => {
     if (activeMenu !== undefined && screenSize <= 900) {
       setActiveMenu(false);
     }
   };
-  const currentColor = "red"
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-neutral-600 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
   return (
@@ -29,7 +28,7 @@ const Sidebar = () => {
               <Link className="items-center
                gap-3 nl-3 mt-4 flex text-xl 
                font-extrasbolad tracking-tight
-               dark:text-white text-s;ate-900"
+               dark:text-white text-state-900"
                 to="/" onClick={() => setActiveMenu(false)}>
                 <SiShopware /> Shoppy
               </Link>
