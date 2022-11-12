@@ -6,8 +6,7 @@ import { earningData, SparklineAreaData } from '../data/dummy';
 import {useStateContext} from '../contexts/contextProvider';
 
 const Ecommerce = () => {
-  const { currentColor, currentMode } = useStateContext();
-
+  const { currentColor } = useStateContext();
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
@@ -126,15 +125,11 @@ const Ecommerce = () => {
             </div>
 
             <div className="mt-4">
-              <SparkLine color={currentColor} currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+              <SparkLine color={currentColor} currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320"/>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
     </div>
 
   )
